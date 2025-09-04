@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            animation: moveBox 2s ease-in-out 3s infinite;
+            <!-- linear ဆိုရင် တန်းတူ-->
+        }
+        @keyframes moveBox{
+            from{left:0;}
+            to{left:400px}
+        }
+        .ball{
+            width: 60px;
+            height: 60px;
+            background-color: black;
+            border-radius: 50%;
+            position: relative;
+            animation: bounce 2s linear 0s infinite;
+        }
+        @keyframes bounce {
+            0%, 100%{
+                transform: translateY(0);
+            }
+            50%{
+                transform: translate(-200px);
+            }
+        }
+        </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="ball"></div>
+</body>
+</html>

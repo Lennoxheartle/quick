@@ -1,0 +1,18 @@
+h1{
+    color: white;
+    background-color: green;
+    text-align: center;
+    padding: 40px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    ;
+}
+section{
+padding: 25px;
+margin: 30px;
+background-color: ghostwhite
+border-radius: 8px;
+box-shadow: 20px 20px 10px green;}

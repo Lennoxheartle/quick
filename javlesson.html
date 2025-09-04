@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Js Dom lesson</h1>
+    
+    <div id="myDiv">
+    
+    <!-- First paragph -->
+      <p id="p1">This is the first paragraph.</p>
+     <!-- Second paragph -->
+      <p id="p2">This is the second paragraph.</p>
+
+      <!-- Third paragph -->
+      
+    </div>
+    
+    <button onclick="myFunction()">Try it</button>
+
+  <script>
+  const myDiv = document.getElementById("myDiv"); 
+     function myFunction(){
+         const p = document.createElement("p");
+         p.textContent = "This is the third paragraph"; 
+     myDiv.appendChild(p);
+ 
+
+     }
+        </script>
+</body>
+</html>

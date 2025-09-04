@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #383a48;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.header .subtitle {
+    font-size: 0.5em;
+    color: red;
+    vertical-align: top;
+    margin-left: 5px;
+}
+
+.tutorial-box {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 20px 50px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tutorial-box h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 500px; /* Adjust as needed */
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #cad8e5;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card .front,
+.card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.card .front {
+    background-color: #fff;
+    transform: rotateY(180deg);
+    color: #333;
+    font-size: 2em;
+}
+
+.card .back {
+    background-color: #cad8e5;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    background-color: #222;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: none; /* Hide controls as they are not visible in the second image */
+}
+
+.controls div {
+    text-align: center;
+    margin: 0 10px;
+}
+
+.controls p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.controls span {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#start-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: none; /* Hide start button as it is not visible in the second image */
+}
+
+#start-button:hover {
+    background-color: #0056b3;
+}

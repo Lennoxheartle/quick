@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Page Title</title>
+ </head>
+ <body>
+    <h1 id="header"> Mango </h1>
+     <ul id="myList">
+       <li id="firstlist">Strawberry</li>
+      </ul>
+     <button onclick="myNewList()">Add New List</button>
+   <script>
+    const myFruits = ["Apple", "Banana", "Orange", "Mango", "Grapes"];
+   const ul = document.getElementById("myList");
+   
+   function myNewList() {
+       myFruits.forEach(fruit=>{
+           const li = document.createElement("li");
+          li.textContent = fruit;
+          ul.appendChild(li);
+       })
+   }
+   const firstlist =document.getElementById('firstlist');
+   console.log(firstlist.textContent)
+    
+   const header=document.getElementById('header');
+   const firstlist = document.getElementById('myList');
+   header.textContent = firstlist.textContent;
+   const input = document.getElementById('user');
+   const userDiv = dcument.getElementById('userDiv');
+
+   function mynewUser(){
+    const p = document.createElement('p');
+    p.textContent = input.value.trim();
+    // console.log(input.value)
+    userDiv.appendChild(p);
+   }
+  </script>
+ 
+ </body>
+</html>

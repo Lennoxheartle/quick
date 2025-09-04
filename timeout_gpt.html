@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* Body background and layout */
+.page-body {
+    background: linear-gradient(to right, #c7d2fe, #fbcfe8); /* from-indigo-200 to-pink-100 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* Container styling */
+.container {
+    background-color: white;
+    padding: 2rem;
+    max-width: 28rem; /* 448px */
+    width: 100%;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* shadow-xl */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Heading style */
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4338ca; /* text-indigo-700 */
+}
+
+/* Button group */
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+/* Base button styling */
+.btn {
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Color-specific buttons and hover effects */
+.btn-indigo {
+    background-color: #6366f1;
+}
+.btn-indigo:hover {
+    background-color: #312e81;
+}
+
+.btn-red {
+    background-color: #f87171;
+}
+.btn-red:hover {
+    background-color: #7f1d1d;
+}
+
+.btn-green {
+    background-color: #22c55e;
+}
+.btn-green:hover {
+    background-color: #065f46;
+}
+
+.btn-yellow {
+    background-color: #facc15;
+    color: black;
+}
+.btn-yellow:hover {
+    background-color: #78350f;
+    color: white;
+}
+
+.btn-gray {
+    background-color: #374151;
+}
+.btn-gray:hover {
+    background-color: #111827;
+}
+
+/* Optional: counter display */
+#counter {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+    </style>
+
+
+<body class="page-body">
+    <div class="container">
+        <h1 class="title">⏳ Timeout & Interval Lesson</h1> 
+        <div class="button-group">
+            <button onclick="startTimeout()" class="btn btn-indigo">Start Timeout (3s)</button>
+            <button onclick="cancelTimeout()" class="btn btn-red">Cancel Timeout</button>
+            <button onclick="startInterval()" class="btn btn-green">Start Counter</button>
+            <button onclick="stopInterval()" class="btn btn-yellow">Stop Counter</button>
+            <button onclick="clearAll()" class="btn btn-gray">Clear Everything</button>
+        </div>
+        <p id="message"></p>
+        <div id="counter">0</div>
+    </div>
+</body>
+</html>

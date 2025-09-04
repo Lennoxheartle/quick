@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+   
+     <style>
+    /*    body {
+            background: linear-gradient(to right, indigo, pink);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            padding: 32px;
+        }
+            .box {
+            backround:white;
+              max-width: 448px;
+              width:100%;
+              text-align:center;
+              border-radius: 10px;
+              box-shadow: 0 0 10px rgba();
+              font-weight:bolder;
+            } */
+    </style>
+   
+
+</head>
+<body class="bg-gradient-to-r from-indigo-200 to-pink-100 flex justify-center items-center min-h-screen "> <!---->
+    <div class="bg-white p-8 max-w-md w-full text-center space-y-6 rounded-xl shadow-xl "><!--md = 448px or 24rem -->
+        <h1 class="text-2xl font-bold text-indigo-700">⏳ Timeout & Interval Lesson</h1> 
+        <div class="flex flex-wrap gap-3 justify-center">
+            <button onclick="startTimeout()" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-900">Start Timeout (3s)</button>
+            <button onclick="cancelTimeout()" class="bg-red-400 text-white px-4 py-2 rounded hover:bg-red-900">Cancel Timeout</button>
+            <button onclick="startInterval()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-900">Start Counter</button>
+            <button onclick="stopInterval()" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-900">Stop Counter</button>
+            <button onclick="clearAll()" class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-900">Clear Everything</button>
+        </div>
+        <p id="message"></p>
+        <div id="counter">0</div>
+
+        <script>
+            const p = document.getElementById('message');
+            let count = 0;
+            let timeoutId;
+            const counter = document.getElementById('counter');
+            function startTimeout() {
+                p.textContent = "Message will show in 3 seconds";
+
+                //setTimeout(function, time)
+                timeouId = setTimeout(()=>{
+                    p.textContent = "✅ Timeout Completed!";
+                },3000);
+            }
+
+            function cancelTimeout() {
+                clearTimeout(timeoutId); // clearTimeout()
+                p.textContent = "❌ Timeout canceled.";
+            }
+
+            function startInterval() {
+                setInterval(()=>{
+                    count++;
+                    counter.textContent = count;
+                },1000)
+            }
+
+            //setInterval(function(), time)
+
+        
+
+
+        </script>
+    </div>
+
+</body>
+</html>

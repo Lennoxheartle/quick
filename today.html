@@ -1,0 +1,164 @@
+🌿Ruth🌿, [9/1/2025 9:50 PM]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nature Cards</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <h2></h2>
+  <h1 style="margin-top: 10vmin;">Hello, Human!</h1>
+  <p style="padding: 0 2vmin;">Welcome to your first plain JavaScript app. Enjoy some nature beauty! 🌿🌸</p>
+
+  <div class="cardBox" id="cardBox">
+    <div class="card">
+         <img src="https://media.istockphoto.com/id/467405207/photo/amaltas.jpg?s=612x612&w=0&k=20&c=p94-SvdAyoDwqzBAZ6WfUjV1Mr4t-8dF2wugFwr1wP4=" alt="">
+     <h1 style="color: red;">Blueberries in Bloom</h1>
+     <p>Ripe blueberries growing on a lush bush, showcasing nature's beauty.</p>
+     <small>By Nature Photographer | 2025-08-31 | ⭐️ 4.9</small>
+    </div>
+  </div>
+  cosnt div = document.createElement('div');
+  div.classList.add('card')
+
+  <script>
+     const numbers = [1,2,3,4,5]; 
+     numbers.forEach((value,index)=>{
+        console.log( index: ${index}, Value:${value})
+     })
+
+   /*  function print(value, index){
+        console.log( index: ${index}, Value:${value})
+     }
+
+     numbers.forEach(print);*/
+     
+     
+     // array
+    /* numbers.forEach(num=>{
+        console.log(num)
+     })*/
+     // array destructuring 
+     const [a,b,c,d,e] = numbers;
+     console.log("e", e)
+
+     const restaurant = {
+        openintTime:"6:00 AM",
+        closingTime:"10:00 PM",
+        waiter:10,
+        waiteress:10
+     }
+
+     const {openintTime,closingTime,waiter,waiteress} = restaurant;
+    console.log("Waiter", waiter)
+     console.log("Closing time", closingTime)
+
+     //console.log("Waiter", restaurant.waiter)
+     //console.log("Closing time", restaurant.closingTime)
+
+     console.log(numbers[0]);
+     console.log(numbers[1]);
+     console.log(numbers[4]);
+     
+
+
+     // object destructuring 
+     const person = {
+        name:"Anthony",
+        age:10,
+        nationality:"German"
+     }
+
+     //console.log(person.name)
+     //console.log(person.age)
+     //console.log(person.nationality)    
+     const {name, age, nationality} = person;
+     console.log(name,age,nationality)
+
+    // function parameter destructuring 
+
+    function hello({name,age,nationality}){
+        console.log(Hello ${name}. Are you ${nationality}?)
+    }
+    hello(person)
+
+
+
+    const cars = [  // array - three objects
+  {
+        color:"blue",
+        year:2020,
+        model:"Toyota"
+    },
+     {
+        color:"white",
+        year:2010,
+        model:"BMW"
+    },
+     {
+        color:"black",
+        year:1990,
+        model:"Mercedes"
+    }
+    ]
+    //document.querySelector('h2').textContent = cars[2].color;
+/*    cars.forEach(car=>{
+        console.log(car)
+        document.querySelector('h2').textContent = car;
+    })*/
+    const cards = [
+      {
+        title: "Blueberries in Bloom",
+        description:
+          "Ripe blueberries growing on a lush bush, showcasing nature's beauty.",
+        img: "https://media.istockphoto.com/id/1412033123/photo/ripe-blueberries-on-a-blueberry-bush.jpg?s=612x612&w=0&k=20&c=Ju1UNns_cfzjivywkWPm3niKHmZy13PH1J8yi727IPw=",
+        author: "Nature Photographer",
+        date: "2025-08-31",
+        rating: 4.9
+      },
+      {
+        title: "Golden Amaltas",
+        description:
+          "Bright yellow Amaltas flowers in full bloom, lighting up the surroundings.",
+        img: "https://media.istockphoto.com/id/467405207/photo/amaltas.jpg?s=612x612&w=0&k=20&c=p94-SvdAyoDwqzBAZ6WfUjV1Mr4t-8dF2wugFwr1wP4=",
+        author: "Garden Lover",
+        date: "2025-07-15",
+        rating: 4.7
+      },
+      {
+        title: "Cassia Fistula",
+        description:
+          "Elegant Cassia Fistula flowers cascading down, a tropical beauty.",
+        img:  "https://media.istockphoto.com/id/1124902914/photo/cassia-fistula-in-thailand.jpg?s=612x612&w=0&k=20&c=t10Aa6IGbpU6ALBPcqKworfcFpamGbtjFV7tOgfMCkI=",
+        author: "Flower Enthusiast",
+        date: "2025-06-20",
+        rating: 4.8
+      }
+    ];
+
+    const cardBox = document.getElementById("cardBox");
+
+🌿Ruth🌿, [9/1/2025 9:50 PM]
+function createCard({ title, description, img, author, date, rating }) {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      card.innerHTML = `
+        <img src="${img}" alt="${title}" />
+        <h2>${title}</h2>
+        <p>${description}</p>
+        <small>By ${author} | ${date} | ⭐️ ${rating}</small>
+      `;
+
+      return card;
+    }
+
+    cards.forEach(cardData => {
+      cardBox.appendChild(createCard(cardData));
+    });
+  </script>
+</body>
+</html>

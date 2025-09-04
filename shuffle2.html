@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            min-height: 60vh;
+            padding: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 2px solid #ccc;
+            border-radius: 12px;
+            margin: 5px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        .button-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        #shuffleButton {
+            background-color:brown;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        #shuffleButton:hover {
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    </div>
+    <div class="button-container">
+        <button id="shuffleButton">Shuffle Images</button>
+    </div>
+    <script>
+        const images = [
+            "photos/branko-stancevic-GI1hwOGqGtE-unsplash.jpg",
+            "photos/growtika-YOEHA0Ou8ZY-unsplash.jpg",
+            "photos/jackson-sophat-_t-l5FFH8VA-unsplash.jpg",
+            "photos/jackson-sophat-wUbNvDTsOIc-unsplash.jpg",
+            "photos/morgan-harper-nichols-OMXPrCAhxrE-unsplash.jpg"
+        ];
+        const container = document.querySelector(".container");
+        const button = document.getElementById("shuffleButton");
+
+         for (let index = 0; index < images.length; index++) {
+                 const card = document.createElement("div");
+                 card.classList.add("card");
+                 const img = document.createElement("img");
+                 img.src = images[index];
+                 card.appendChild(img);
+                 container.appendChild(card);
+            }
+
+        const shuffle = (array=images) => {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        };
+
+        const applyShuffle = () => {
+            const shuffledImages = [...images];
+            const cards = document.querySelectorAll(".card");
+            shuffle(shuffledImages);
+            cards.forEach((card, index) => {
+                const img = card.querySelector("img");
+                img.src = shuffledImages[index];
+            });
+        };
+
+        button.addEventListener("click", applyShuffle);
+
+
+
+
+    </script>
+</body>
+</html>

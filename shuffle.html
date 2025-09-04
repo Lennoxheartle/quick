@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Shuffle Visualization</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #cards-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Shuffle Visualization</h1>
+    <div id="cards-container"></div>
+    <button onclick="shuffleAndDisplay()">Shuffle Cards</button>
+</body>
+
+<script>
+    const cardsContainer = document.getElementById('cards-container');
+
+    const images = [
+        "https://images.unsplash.com/photo-1549429532-61011855e975?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1557088927-b50a2b027d14?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1627918451877-06eb3650212f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1624639446869-7c47285a213e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ];
+
+    // Fisher-Yates shuffle algorithm
+    function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    // Function to display the images
+    function displayImages(arr) {
+        // Clear the container before adding new images
+        cardsContainer.innerHTML = '';
+        arr.forEach(imageUrl => {
+            const cardDiv = document.createElement('div');
+            cardDiv.classList.add('card');
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            cardDiv.appendChild(img);
+            cardsContainer.appendChild(cardDiv);
+        });
+    }
+    
+    // The main function called by the button
+    function shuffleAndDisplay() {
+        const shuffledImages = shuffle([...images]); // Create a copy to shuffle
+        displayImages(shuffledImages);
+    }
+    
+    // Initial display of images when the page loads
+    window.onload = shuffleAndDisplay;
+
+</script>
+</html>

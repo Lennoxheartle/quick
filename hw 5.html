@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Animated Profile</title>
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      align-items:center;
+      height: 100vh;
+    }
+    .ribbon-card{
+      position: relative;
+      width: 200px;
+      top:10px;
+      left:-20px
+      box-shadow: 0 4px 12px black;
+      border-radius: 12px;
+      background-color: bisque;
+      overflow: hidden;
+      
+    }
+    img{
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    }
+    .ribbon{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      transform: rotate(-45deg);
+      position: absolute;
+      color: blue;
+      font-weight: bolder;
+      background-color: red;
+      padding: 10px;
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      
+    }
+   </style>
+   <body>
+    <div class="ribbon-card">
+      <div class="ribbon">
+        New! </div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaMCDbMYj06jgWEQU6UwePJlV4BDaVncNiZQ&s" 
+        width="200px" height="200px">
+        <div class="card-content">
+          <h3> Spring Garden Tips </h3>
+          <p> Learn the best ways to prep your garden for the season</p>
+        </div>
+      </div>
+    
+   </body>

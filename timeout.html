@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+     <style>
+        body {
+            background: linear-gradient(to right, indigo, pink);
+            display:flex;
+            justify-content:center;
+            align-item:center;
+            min-height:100vh;
+            padding:32px;
+        }
+            .box {
+              background-color: white;
+              max-width: 448px;
+              text-align:center;
+              border-radius: 10px;
+              box-shadow: 0 0 10px rgba();
+              padding: 2rem; 
+              width: 100%;
+                      
+    }
+    .Title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4338ca; /* text-indigo-700 */
+}
+    .button_group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+    .indigo {
+    background-color: #6366f1;
+}
+.indigo:hover {
+    background-color: #312e81;
+}
+
+.red {
+    background-color: #f87171;
+}
+.red:hover {
+    background-color: #7f1d1d;
+}
+
+.green {
+    background-color: #22c55e;
+}
+.green:hover {
+    background-color: #065f46;
+}
+
+.yellow {
+    background-color: #facc15;
+    color: black;
+}
+.yellow:hover {
+    background-color: #78350f;
+    color: white;
+}
+
+.gray {
+    background-color: #374151;
+}
+.gray:hover {
+    background-color: #111827;
+}  
+          
+    </style>
+
+ <!---->
+
+</head>
+<body>
+    <div class="box ">
+        <h1 class="Title">⏳ Timeout & Interval Lesson</h1> 
+        <div class="button_group">
+        <button onclick="startTimeout()" class="indigo">Start Timeout (3s)</button>
+        <button onclick="cancelTimeout()"class="red">Cancel Timeout</button>
+        <button onclick="startInterval()"class="green">Start Counter</button>
+        <button onclick="stopInterval()"class="yellow">Stop Counter</button>
+        <button onclick="clearAll()"class="grey">Clear Everything</button>
+        </div>
+        <p id="message"></p>
+        <div id="counter">0</div>
+    </div>
+
+</body>
+</html>

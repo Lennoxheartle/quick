@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .firstCard {
+      width: 17vmin;
+      height: 17vmin;
+      border-radius: 1vmin;
+      background: lightblue;
+      position: relative;
+      
+    }
+
+    .firstCard .front, 
+    .firstCard .back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 1vmin;
+    }
+
+    .firstCard .front {
+      z-index: 2;
+      background-color: rgb(221, 212, 202);
+    }
+
+    .firstCard .back img {
+      width: 100%;
+      height: 100%;
+      border-radius: 1vmin;
+    }
+
+    /* New CSS to hide the front and show the back */
+    .firstCard.revealed .front {
+      display: none;
+    }
+    .firstCard.revealed .back {
+      z-index: 3;
+    }
+ </style>
+</head>
+<body>
+
+  <div class="firstCard">
+    <div class="front"></div>
+    <div class="back"><img src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=pexels-pixabay-45201.jpg&fm=jpg" alt="Cat" ></div>
+  </div>
+
+  <h2 class="score">Score: <span>0</span></h2>
+
+  <button id="myBtn">Click me</button>
+
+  <script>
+
+    const h2 = document.querySelector('h2');
+    console.log(h2.classList.contains('score'));
+
+    //contains() // true or false 
+
+    let score = 0;
+    const secondCard = document.querySelector('.secondCard');
+
+    // This line will cause an error because there is no .secondCard element in the HTML
+    // const secondSrc = secondCard.querySelector('.back img').src
+    // console.log("Second image src", secondSrc)
+
+
+    const firstCard = document.querySelector('.firstCard');
+
+    const firstSrc = firstCard.querySelector('.back img').src
+   // console.log(img)
+    console.log(firstSrc)
+
+    // This condition will not work without a second card to compare with
+    // if(firstSrc === secondSrc) {
+    //   score += 5;
+    //   document.querySelector(".score span").textContent = score;
+    //   console.log("yes they are the same images")
+    // } else {
+    //     score -=3
+    //     console.log("Nope They are not the same")
+    // }
+
+    // Event listener for the "Click me" button
+    document.getElementById('myBtn').addEventListener('click', () => {
+        firstCard.classList.add('revealed');
+    });
+    
+    // flag (true/flase)
+    let locked = false; 
+    document.getElementById('myBtn').addEventListener('click',()=>{
+      if(locked) {
+        console.log("Click blocked!")
+        return;
+      }
+      console.log("Click accepted")
+    });
+
+
+    setTimeout(()=>{
+      locked = true;
+      console.log("Board locked!")
+    },3000)
+
+    let boardLocked = false;
+
+    function exampleClick() {
+      if(boardLocked) return;
+      console.log("Click accepted");
+    } 
+    
+    boardLocked = true;
+    exampleClick()
+    console.log("finished")
+  </script>
+</body>
+</html>

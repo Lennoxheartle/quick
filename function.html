@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // regular function
+        function greet(name, age) {
+            return `I'm ${name} and ${age} years old.` ; // template string/ backticks';
+        }
+        console.log(greet('Anthony', 10));
+
+        //arrow function
+
+        const add = (x,y)=> x+y
+        console.log(add(10,20)); // 30
+
+
+        // buil-in methods
+        console.log(Math.random())// between 0 and 1
+        console.log(Math.floor(4.9)); // 4
+        console.log(Math.ceil(4.1));//5
+        console.log(Math.round(4.5));// 5 
+        console.log(Math.max(3,5,9));// 9
+        console.log(Math.min(3,5,9));// 3
+        console.log(Math.sqrt(36));// 6
+        console.log(Math.pow(2,3)); // 8
+
+        const currentDate = new Date();
+        console.log("Current Date", currentDate);
+        console.log("Year:", currentDate.getFullYear())
+        console.log("Hours:", currentDate.getHours());
+        console.log("Minutes:", currentDate.getMinutes());
+        console.log("Seconds:", currentDate.getSeconds());
+        console.log("Milliseconnds:", currentDate.getMilliseconds());
+        console.log("Time", currentDate.getTime());
+        console.log("UTC Date", currentDate.getUTCDate());
+        console.log("UTC Hours", currentDate.getUTCMonth());
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .firstCard {
+      width: 18vmin;
+      height: 18vmin;
+      border-radius: 1vmin;
+      position: relative;
+
+      
+    }
+
+    .firstCard .front, 
+    .firstCard .back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 1vmin;
+    }
+
+    .firstCard .front {
+      background-color: rgb(221, 212, 202);
+    }
+
+    .firstCard .back img {
+      width: 100%;
+      height: 100%;
+      border-radius: 1vmin;
+    }
+
+    .firstCard .back {
+      display: none;
+    }
+
+    .firstCard.show .back {
+      display: block;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <div class="firstCard">
+    <div class="front"></div>
+    <div class="back"><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fcat%2520face%2F&psig=AOvVaw0tqoxiYsQGu6GMT9weSx__&ust=1755613645083000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCND3ls_HlI8DFQAAAAAdAAAAABAE" alt="Cat"></div>
+  </div> <br><br>
+
+    <div class="secondCard">
+    <div class="front"></div>
+    <div class="back"><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fcat%2520face%2F&psig=AOvVaw0tqoxiYsQGu6GMT9weSx__&ust=1755613645083000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCND3ls_HlI8DFQAAAAAdAAAAABAE" alt="Cat" width="100"></div>
+  </div>
+
+
+
+  <h2 class="score">Score: <span>0</span></h2>
+
+  <button id="myBtn">Click me</button>
+
+
+  
+  <script>
+        const firstCard = document.querySelector('.firstCard');
+        firstCard.addEventListener('click',()=>{
+          firstCard.classList.toggle('show');
+        })
+
+    const h2 = document.querySelector('h2');
+    console.log(h2.classList.contains('score'));
+
+
+    //contains() // true or false 
+
+    let score = 0;
+    const secondCard = document.querySelector('.secondCard');
+
+    const secondSrc = secondCard.querySelector('.back img').src
+    console.log("Second image src", secondSrc)
+
+
+
+
+    const firstSrc = firstCard.querySelector('.back img').src
+   // console.log(img)
+    console.log(firstSrc)
+
+
+    if(firstSrc === secondSrc) {
+      score += 5;
+      document.querySelector(".score span").textContent = score;
+      console.log("yes they are the same images")
+    } else {
+        score -=3
+        console.log("Nope They are not the same")
+    }
+    
+
+
+
+
+    // flag (true/flase)
+
+
+    let locked = false; 
+    document.getElementById('myBtn').addEventListener('click',()=>{
+      if(locked) {
+        console.log("Click blocked!")
+        return;
+      }
+      console.log("Click accepted")
+    });
+
+
+    setTimeout(()=>{
+      locked = true;
+      console.log("Board locked!")
+    },3000)
+
+
+
+
+    let boardLocked = false;
+
+    function exampleClick() {
+      if(boardLocked) return;
+      console.log("Click accepted");
+    } 
+    
+    boardLocked = true;
+    exampleClick()
+    console.log("finished")
+
+  </script>
+</body>
+</html>

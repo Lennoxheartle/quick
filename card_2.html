@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .game-container {
+      margin: 10vmin auto;
+      width: 60vmin;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);/* one fraction*/
+      gap:1vmin 0;
+      border-radius: 1vmin;
+      background-color: rgb(17, 62, 2);
+
+    }
+    .card {
+      width: 25vmin;
+      height: 25vmin;
+      position: relative;
+      margin: 2vmin auto;
+
+    }
+
+    .front, .back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border-radius: 1vmin;
+    }
+
+    .card .back {
+      display: none;
+    }
+
+    .card.active .back {
+      display: block;
+    }
+
+    .front {
+      background-color: cadetblue;
+    }
+
+    .card .back img {
+      width: 100%;
+      height: 100%;
+      border-radius: 1vmin;
+    }
+  </style>
+</head>
+<body>
+  <!--.card*2>.front+.back>img-->
+ <div class="game-container">
+    <div class="card">
+    <div class="front"></div>
+    <div class="back"><img src="2.jpg" alt=""></div>
+  </div>
+  <div class="card">
+    <div class="front"></div>
+    <div class="back"><img src="1.jpg" alt=""></div>
+  </div>
+      <div class="card">
+    <div class="front"></div>
+    <div class="back"><img src="2.jpg" alt=""></div>
+  </div>
+  <div class="card">
+    <div class="front"></div>
+    <div class="back"><img src="1.jpg" alt=""></div>
+  </div>
+ </div>
+
+  <button>Start</button>
+
+  <script>
+    let x = 10;
+    let y = 20
+    let isUnLocked = false;
+    const cards = document.querySelectorAll('.card');
+    const button = document.querySelector('button');
+
+    button.addEventListener('click', ()==>{
+        isUnLocked = true;
+        button.textContent = "Unlocked";
+        button.style.color = 'green'; 
+        button.style.backgroundColor = 'gray';
+    })
+    cards.forEach(card=>{
+      card.addEventListener('click',()=>{
+        if(isUnLocked){
+        card.classList.toggle('active');
+        }
+      })
+    })
+  </script>
+</body>
+</html>

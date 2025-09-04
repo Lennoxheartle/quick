@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <head>
+<style>
+#myButton {
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box">This is the first Div</div>
+    <div class="box"></div>
+
+    <div id="btnDiv">   <!--<button id="myButton">Click me</button>--></div>
+ 
+    <script>
+        const myBox = document.getElementsByClassName("box")[1];
+        myBox.textContent ='This is the second Div';
+
+        const btnDiv = document.getElementById('btnDiv');
+
+        const button = document.createElement('button');
+        button.textContent = "Add";
+        button.setAttribute('id',"myButton");
+        button.style.backgroundColor = "blue";
+        button.style.color = "white";
+        btnDiv.appendChild(button);
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;  
+            padding: 10vmin;
+            background-color: rgb(230, 233, 235);
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: gray;
+            padding: 2vmin;
+            border-radius: 2vmin;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+      /*      display: flex;
+            flex-wrap: wrap;
+            background-color: aquamarine;
+            border-radius: 2vmin;
+            align-items: center;
+            justify-content: center;*/
+        }
+
+        .box {
+            background-color: white;
+            margin: 5vmin;
+            padding: 3.5vmin;
+            border-radius: 2vmin;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            width: 200px;
+
+        }
+
+        .name  {
+            margin-bottom: 1vmin;
+            color: rgb(25, 1, 131);
+        }
+
+    </style>
+</head>
+<body>
+
+    <main>
+        <h1>Fruit list</h1>
+       <div class="container"></div>
+    </main>
+    <footer>
+        <p>Contact us</p>
+    </footer>
+ 
+
+     
+ 
+
+    <script>
+
+        const container = document.querySelector('.container');
+
+        const fruits = [
+            {
+                name: " Papaya",
+                country : "Myanmar" ,
+            }, 
+
+             {
+                name: " Banana",
+                country : "Japan" ,
+            }, 
+
+             {
+                name: " Orange",
+                country : "Germany",
+            }, 
+
+             {
+                name: " Kiwi",
+                country : "USA" ,
+            }
+        ]
+
+        function showFruit({name,country}){
+               const card = document.createElement('div');
+               card.className = "box";
+
+               card.innerHTML = 
+               `<div class="name">Name:${name}</div>
+               <p class="country"> Country: ${country} </p> 
+               `;
+
+               container.appendChild(card);
+            
+        }
+        fruits.forEach(fruit=>{
+            showFruit(fruit);
+        })
+    </script>
+</body>
+</html>

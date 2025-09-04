@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"> count:0 </div>
+    <a href="https://www.w3schools.com/js/">
+        <script>
+            const pi = 3.142;
+            last number = 20;
+            const myBox = document.getElementById('box');
+            myBox.textContent = "<b>Hellow Word</b>";
+            
+            const myArray = ["James", "Mary", "John", "Schmit"];
+            console.log(myArray);
+            myArray.push('Henry');
+            console.log(myArray);
+            myArray.pop();
+            console.log(myArray);
+            myArray.shift();
+            console.log(myArray);
+            myArray.unshift();
+            console.log(myArray);
+            console.log(myArray.length);
+
+            const name = document.getElementById('name');
+            name.textContent = myArray [2];
+    
+    // object
+
+    const person ={
+        name: "Anthony",
+        age: 10,
+        hobbies:["drawing", "playing games"],
+        greet: function() {
+            console.log("Hello");
+        }
+    }
+    console.log(person.age)
+    console.log(person.name)
+    person.greet();
+    person.age=9;
+    console.log{person.age};
+    console.log{person["name"]};
+    delete person.age;
+    console.log(person)
+
+    const car = {
+        brand: "Toyota";
+        model: "Camry";
+        year: 2020;
+
+    }
+
+    const student ={
+        name: "Oliver",
+        grade: "10th Grade",
+        subjects: ["Myanmar", "English", "Maths", "Physics", "Chemistry", "Biology"]
+    }
+
+        </script>   
+               </body>
+</html>

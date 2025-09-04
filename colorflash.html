@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flasher Box</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .palette-icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        .flasher-box-container {
+            width: 300px;
+            height: 300px;
+            border: 2px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            transition: background-color 0.1s;
+            background-color: #d3d3d3;
+        }
+
+        .message {
+            font-size: 1.5em;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 20px;
+            border: 1px solid #007bff;
+            background-color: #fff;
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .button:disabled {
+            color: #b0b0b0;
+            border-color: #b0b0b0;
+            cursor: not-allowed;
+        }
+
+        .star-icon, .clock-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            
+            🎨Color Flasher Box
+        </h1>
+        <div id="flasherBox" class="flasher-box-container">
+            <span id="message" class="message">Waiting...</span>
+        </div>
+        <div class="buttons">
+            <button id="startButton" class="button">Start Flashing</button>
+            <button id="stopButton" class="button" disabled>Stop Flashing</button>
+        </div>
+    </div>
+
+    <script>
+        const flasherBox = document.getElementById('flasherBox');
+        const messageSpan = document.getElementById('message');
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+
+        let intervalId;
+        let timeoutId;
+        let isFlashing = false;
+
+        const colors = ['red', 'purple', 'orange', 'yellow', 'blue', 'green'];
+
+        // Function to generate a random color from the array
+        function getRandomColor() {
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            return colors[randomIndex];
+        }
+
+        // Function to start the flashing
+        function startFlashing() {
+            if (isFlashing) return;
+
+            isFlashing = true;
+            startButton.disabled = true;
+            stopButton.disabled = false;
+
+            messageSpan.innerHTML = ' ✨Flashing!';
+
+            intervalId = setInterval(() => {
+                flasherBox.style.backgroundColor = getRandomColor();
+            }, 500); // Change color every 0.5 seconds
+
+            // Automatically stop after 6 seconds
+            timeoutId = setTimeout(() => {
+                stopFlashing();
+                messageSpan.innerHTML = '🕰️Auto Stopped!';
+                flasherBox.style.backgroundColor = '#d3d3d3';
+            }, 6000);
+        }
+
+        // Function to stop the flashing
+        function stopFlashing() {
+            if (!isFlashing) return;
+
+            isFlashing = false;
+            startButton.disabled = false;
+            stopButton.disabled = true;
+
+            clearInterval(intervalId);
+            clearTimeout(timeoutId);
+
+            flasherBox.style.backgroundColor = '#d3d3d3';
+            messageSpan.textContent = 'Waiting...';
+        }
+
+        // Event listeners for the buttons
+        startButton.addEventListener('click', startFlashing);
+        stopButton.addEventListener('click', stopFlashing);
+
+    </script>
+</body>
+</html>

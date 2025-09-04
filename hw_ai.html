@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spring Garden Tips Card</title>
+  <style>
+    body {
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      width: 350px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      position: relative;
+      
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .ribbon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #e91e63;
+      color: white;
+      padding: 8px 16px;
+      font-weight: bold;
+      transform: rotate(-45deg);
+      transform-origin: top left;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      top:45px;
+      left:-10px
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h2 {
+      margin: 0 0 10px;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    .card-content p {
+      margin: 0;
+      color: #666;
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="ribbon">New!</div>
+    <img src="https://tse3.mm.bing.net/th?id=OIP.x0_dk4c0BqJbVg91_5ABRQHaEo&pid=Api&P=0&w=300&h=300" alt="Spring Garden">
+    <div class="card-content">
+      <h2>Spring Garden Tips</h2>
+      <p>Learn the best ways to prep your garden for the season!</p>
+    </div>
+  </div>
+</body>
+</html>
