@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* A common practice to remove default margin/padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: cursive;
+            background-color: rgb(240, 249, 175);
+        }
+        nav {
+            position: sticky;
+            /* Make the nav container a flex container */
+            display: flex;
+            max-width: 1200;
+            margin: 0 auto;
+            /* Distribute items with space between them */
+            justify-content: space-between;
+            /* Align items vertically in the center */
+            align-items: center;
+            z-index: 10;
+            /* Add some padding for better spacing */
+            padding: 10px 20px;
+            background-color: #f0f2f5; /* Light gray background for visibility */
+            border-bottom: 1px solid;
+        }
+
+       nav ul {
+            /* Remove the bullet points from the list */
+            list-style: none;
+            /* Make the ul a flex container for its list items */
+            display: flex;
+            /* Add some space between the list items */
+            gap: 20px;
+        }
+        nav ul li{
+            background-color: rgb(214, 213, 213);
+            padding: 4px 12px;
+            border-radius: 1 vmin;
+
+        }
+
+        nav p {
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .log-box li {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <p>Instagram</p>
+        
+            <ul>
+                <li>Log in</li>
+                <li>Register</li>
+            </ul>
+       
+    </nav>
+<script>
+    const stories = [
+      { username: 'Aaru', img: 'https://randomuser.me/api/portraits/women/1.jpg' },
+      { username: 'Mila', img: 'https://randomuser.me/api/portraits/women/2.jpg' },
+      { username: 'Leo', img: 'https://randomuser.me/api/portraits/men/3.jpg' },
+    ];
+    stories.forEach(
+        story=>{
+            const div = document.createElement('div');
+            div.classList.add('card')
+            div.innerHTML = `
+            <div class=
+            `
+        }
+    )
+</script>
+</body>
+</html>

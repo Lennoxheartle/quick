@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 30px;
+            text-align: center;
+            background :linear-gradient( to left, rgb(128, 8, 214), rgb(255, 177, 190)) #cbcdcb;
+        }
+
+        section {
+           /* From https://css.glass */
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+             border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 2vmin;
+            max-width: 400px;
+            padding: 7vmin;
+            margin: 0 auto;
+            border-radius: 2vmin;
+           
+        }
+
+        #timeDisplay {
+            margin-bottom: 2vmin;
+            font-weight: bold;
+        }
+
+        .question-card {
+            background-color: rgb(196, 249, 244);
+            padding: 3vmin;
+            border-radius: 2vmin;
+            margin-bottom: 3vmin;
+        }
+
+        .feedback {
+            font-weight: bolder;
+            margin: 2vmin;
+          
+
+        }
+        button {
+            background: lightgray;
+            border: none;
+            cursor: pointer;
+            padding: 3.5vmin;
+            font-size: 17px;
+            border-radius: 1vmin;
+            margin-right: 2vmin;
+            font-weight: bold;
+        }
+
+        #imgDiv img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 3vmin;
+        }
+        #nextBtn {
+            display: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45vh;
+
+        }
+        #options > button {
+           margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+       
+       <div id="timeDisplay"></div>
+       <div class="question-card"></div> 
+        <div id="options"></div>
+        <div class="feedback"></div>
+
+       
+        <div id="imgDiv"></div>
+        <button id="nextBtn">Next Question</button>
+    </section>
+
+    <script>
+    const imgDiv = document.querySelector('#imgDiv');
+
+    const quizes = [
+        {question: "What is the best university for Engineering in the world?", answerImage:"image/MIT.jpg" , alt:"MIT", selections:["image/MIT.jpg","image/harvard.jpg","image/oxford.jpg"]},
+        {question: "What is the capital of Indonesia?", answerImage:"image/indo.jpg" , alt:"Jakarta", selections:["image/myanmar.jpg","image/thailand.jpg","image/indo.jpg"]},
+        {question:"How many states are there in USA?", answerImage:"image/50.jpg", alt:"50", selections:["image/49.jpg","image/50.jpg","image/51.jpg"]}, 
+        {question: "What is the flag of Belgium?", answerImage:"image/belgium.jpg", alt:"Belgium flag", selections:["image/UK.jpg","image/belgium.jpg","image/france.jpg"]}
+    ];
+
+    const timer = document.querySelector('#timeDisplay');
+    const questionCard = document.querySelector('.question-card');
+    const optionsDiv = document.querySelector('#options');
+    const feedback = document.querySelector('.feedback');
+    const nextBtn = document.querySelector('#nextBtn');
+    let intervalId;
+    let timeLeft;
+    let currentIndex = 0;
+
+    function justTimer(){
+        timeLeft = 15;
+        timer.textContent = `Time Left: ${timeLeft}s`;
+        intervalId = setInterval(()=>{
+            timeLeft--;
+            timer.textContent = `Time Left: ${timeLeft}s`;
+            if(timeLeft <= 0){
+                clearInterval(intervalId);
+                timer.textContent = "Time's up!";
+                nextBtn.style.display = 'block';
+            }
+        },1000)
+    }
+
+    function checkAnswer(selected, correctImg, correctAlt){
+        if(selected === correctImg){
+            feedback.textContent = "✅ Correct!";
+        } else {
+            feedback.textContent = `❌ Oops, the correct answer is ${correctAlt}`;
+        }
+        imgDiv.innerHTML = `<img src="${correctImg}" alt="${correctAlt}"/>`;
+        clearInterval(intervalId);
+
+        // disable all buttons
+        const allButtons = optionsDiv.querySelectorAll("button");
+        allButtons.forEach(btn=>{
+            btn.disabled = true;
+        });
+        nextBtn.style.display = "block";
+    }
+
+    function loadQuestion(index){
+        justTimer();
+        const {question, answerImage, alt, selections} = quizes[index];
+        optionsDiv.innerHTML = "";
+        imgDiv.innerHTML = "";
+        feedback.textContent = "";
+        nextBtn.style.display = "none";
+
+        questionCard.textContent = question;
+
+        selections.forEach(opt=>{
+            const button = document.createElement('button');
+            button.innerHTML = `<img src="${opt}" width="100"/>`;
+            button.addEventListener('click', ()=> checkAnswer(opt, answerImage, alt));
+            optionsDiv.appendChild(button);
+        });
+    }
+
+    nextBtn.addEventListener('click', ()=>{
+        currentIndex++;
+        if(currentIndex < quizes.length){
+            loadQuestion(currentIndex);
+        } else {
+            timer.textContent = "";
+            optionsDiv.innerHTML = "";
+            nextBtn.style.display = "none";
+            feedback.textContent = "";
+            questionCard.textContent = "🎉 Quiz finished!";
+            imgDiv.innerHTML = "";
+        }
+    });
+
+    loadQuestion(currentIndex); // start quiz
+</script>
+
+</body>
+</html>
