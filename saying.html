@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #quizContainer {
+            transition: opacity 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hello world</h1>
+
+    <div id="quizContainer"> </div>
+
+    <button>Stop</button>
+    <button>Continue</button>
+
+    <script>
+        const quotes = ["Silence is golden", "No pain, no gain", "Time and tide wait for no man", "Time is Gold "]
+        const quizContainer = document.querySelector('#quizContainer');
+        function generateQuiz(){
+        quizContainer.style.opacity = 0; // fade in/fade out
+
+        setTimeout(()=>{
+            const index = Math.floor(Math.random()*quotes.length);
+            quizContainer.textContent = quotes[index];
+            quizContainer.style.opacity = 1;
+        }, 1000)
+     }
+
+     setInterval(generateQuiz,2000)
+    </script>
+</body>
+
+</html>
